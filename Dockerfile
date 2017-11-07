@@ -5,7 +5,7 @@ RUN apk --update --no-cache add x11vnc xvfb openbox xfce4-terminal supervisor su
 && addgroup alpine \
 && adduser  -G alpine -s /bin/sh -D alpine \
 && echo "alpine:alpine" | /usr/sbin/chpasswd \
-&& echo "alpine    ALL=(ALL) ALL" >> /etc/sudoers \
+&& echo "alpine    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
 && rm -rf /tmp/* /var/cache/apk/*
 ADD etc /etc
 WORKDIR /home/alpine
